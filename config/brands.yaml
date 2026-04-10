@@ -1,0 +1,170 @@
+# ============================================================================
+# Brand Configuration
+# ----------------------------------------------------------------------------
+# Fill in your brand details here. The more specific you are, the sharper
+# (and more on-brand) the AI-generated content will be.
+#
+# Every field feeds directly into the system prompts the agents use, so treat
+# this file as your single source of truth for voice, audience, and offers.
+# ============================================================================
+
+brands:
+  # ---------------------------------------------------------------------- #
+  # FASHION BRAND #1                                                       #
+  # ---------------------------------------------------------------------- #
+  - id: fashion_brand_1
+    name: "YourFashionBrand1"
+    industry: fashion
+    website: "https://yourfashionbrand1.com"
+    tagline: "Modern essentials for everyday confidence"
+    description: >
+      Contemporary women's fashion focused on minimalist, high-quality
+      basics and statement pieces. Size-inclusive and ethically sourced.
+    target_audience:
+      primary: "Women, 25-40, urban professionals"
+      secondary: "Style-conscious millennials interested in capsule wardrobes"
+      pain_points:
+        - "Hard to find quality basics that last"
+        - "Want fashion that works from desk to dinner"
+        - "Care about sustainability but still want style"
+    usp:
+      - "100% organic cotton core line"
+      - "Size-inclusive (XS-4XL)"
+      - "Free shipping over $75"
+      - "30-day no-hassle returns"
+    voice:
+      tone: "Warm, confident, friendly — never preachy"
+      avoid: "Overused fashion buzzwords, exclamation overload, hype"
+      favorite_words:
+        - "effortless"
+        - "wearable"
+        - "timeless"
+        - "everyday luxury"
+    competitors:
+      - "Everlane"
+      - "Quince"
+      - "COS"
+    seed_keywords:
+      - "minimalist capsule wardrobe"
+      - "organic cotton basics"
+      - "ethical women's clothing"
+      - "size inclusive fashion"
+      - "work to weekend outfits"
+    seasonal_focus:
+      spring: "Lightweight layers, transitional dresses"
+      summer: "Breathable linen, travel-friendly sets"
+      fall: "Sweaters, layering pieces"
+      winter: "Cozy knits, cold-weather essentials"
+
+  # ---------------------------------------------------------------------- #
+  # FASHION BRAND #2                                                       #
+  # ---------------------------------------------------------------------- #
+  - id: fashion_brand_2
+    name: "YourFashionBrand2"
+    industry: fashion
+    website: "https://yourfashionbrand2.com"
+    tagline: "Streetwear with a story"
+    description: >
+      Gender-neutral streetwear brand blending vintage influences with
+      modern silhouettes. Limited drops and community-driven collabs.
+    target_audience:
+      primary: "Gen Z and younger millennials, 18-30"
+      secondary: "Sneakerheads, music and skate culture fans"
+      pain_points:
+        - "Tired of mass-produced fast fashion"
+        - "Want unique pieces that don't break the bank"
+        - "Value authenticity and brand story"
+    usp:
+      - "Limited drops (never restocked)"
+      - "Small-batch production"
+      - "Collabs with independent artists"
+      - "Free shipping over $100"
+    voice:
+      tone: "Edgy, confident, culturally aware, a little playful"
+      avoid: "Corporate speak, gatekeeping, over-explaining"
+      favorite_words:
+        - "drop"
+        - "fit"
+        - "limited"
+        - "OG"
+    competitors:
+      - "Stüssy"
+      - "Carhartt WIP"
+      - "Aimé Leon Dore"
+    seed_keywords:
+      - "streetwear drops"
+      - "unisex hoodies"
+      - "vintage inspired tees"
+      - "independent streetwear brand"
+      - "limited edition apparel"
+    seasonal_focus:
+      spring: "Windbreakers, lightweight hoodies"
+      summer: "Graphic tees, caps, shorts"
+      fall: "Heavy hoodies, varsity jackets"
+      winter: "Puffers, beanies, layering pieces"
+
+  # ---------------------------------------------------------------------- #
+  # FURNITURE BRAND                                                        #
+  # ---------------------------------------------------------------------- #
+  - id: furniture_brand
+    name: "YourFurnitureBrand"
+    industry: furniture
+    website: "https://yourfurniturebrand.com"
+    tagline: "Built for the life you actually live"
+    description: >
+      Mid-priced modern furniture — sofas, beds, dining, and storage —
+      designed for small apartments and growing families. Solid wood
+      construction and ships in reusable packaging.
+    target_audience:
+      primary: "First-time homeowners and renters, 28-45"
+      secondary: "Young families furnishing second homes, design-conscious urbanites"
+      pain_points:
+        - "IKEA feels disposable, West Elm is too expensive"
+        - "Small space constraints"
+        - "Want furniture that lasts through moves"
+        - "Worry about long delivery times"
+    usp:
+      - "Solid hardwood frames, not particleboard"
+      - "Ships in 2-3 weeks (not 4 months)"
+      - "Free white-glove delivery over $1,500"
+      - "10-year frame warranty"
+      - "Modular designs for small spaces"
+    voice:
+      tone: "Grounded, reassuring, quietly confident, practical"
+      avoid: "Luxury snobbery, design-jargon-soup, anxiety marketing"
+      favorite_words:
+        - "built to last"
+        - "made for real life"
+        - "solid"
+        - "thoughtful"
+    competitors:
+      - "Article"
+      - "Floyd"
+      - "Burrow"
+      - "Sabai Design"
+    seed_keywords:
+      - "solid wood sofa"
+      - "small space furniture"
+      - "modular sectional"
+      - "mid century dining table"
+      - "apartment friendly furniture"
+    seasonal_focus:
+      spring: "Outdoor sets, dining refreshes"
+      summer: "Outdoor living, patio"
+      fall: "Living room refreshes, cozy textiles"
+      winter: "Bedroom makeovers, holiday hosting pieces"
+
+# ============================================================================
+# Global settings shared across all brands
+# ============================================================================
+global:
+  # Where to write generated content
+  output_dir: outputs
+
+  # Default Claude model. Opus 4.6 is the most capable; swap to
+  # claude-sonnet-4-6 if you want ~40% cheaper output and very similar quality.
+  model: claude-opus-4-6
+
+  # Cap on generation length per call (in tokens). Content agents need
+  # plenty of room — blog posts easily run 10-14k tokens.
+  max_tokens: 16000
