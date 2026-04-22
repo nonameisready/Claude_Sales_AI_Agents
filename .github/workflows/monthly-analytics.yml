@@ -10,7 +10,7 @@ name: Monthly Analytics Review
 #   - Free-tools setup guide (if not yet set up)
 #   - Attribution playbook
 #
-# Required secret: ANTHROPIC_API_KEY
+# Required secret: OPENAI_API_KEY
 
 on:
   schedule:
@@ -40,7 +40,7 @@ jobs:
 
       - name: Run analytics agent for all brands
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CLAUDE_OUTPUT_DIR: generated
         run: |
           # No --brand flag → runs all brands defined in config/brands.yaml

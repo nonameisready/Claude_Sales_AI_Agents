@@ -3,7 +3,7 @@ Orchestrator
 ============
 
 Coordinates running one or more specialized agents across one or more
-brands. Reuses a single `anthropic.Anthropic` client so every agent in
+brands. Reuses a single `openai.OpenAI` client so every agent in
 the same run shares the session's prompt cache (role prompt + brand
 context is cached per-brand and per-agent).
 
@@ -23,7 +23,7 @@ from __future__ import annotations
 import os
 from typing import Any
 
-import anthropic
+import openai
 
 from .agents import (
     AnalyticsAgent,
@@ -58,11 +58,11 @@ class Orchestrator:
     def __init__(
         self,
         config: dict[str, Any] | None = None,
-        client: anthropic.Anthropic | None = None,
+        client: openai.OpenAI | None = None,
     ):
         self.config = config or load_config()
-        self.client = client or anthropic.Anthropic(
-            api_key=os.environ.get("ANTHROPIC_API_KEY"),
+        self.client = client or openai.OpenAI(
+            api_key=os.environ.get("OPENAI_API_KEY"),
         )
 
     # ------------------------------------------------------------------ #

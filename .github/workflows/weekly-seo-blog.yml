@@ -4,7 +4,7 @@ name: Weekly SEO Blog Posts
 # post, a comparison post, and an FAQ page for all three brands — one PR
 # per brand so review stays manageable.
 #
-# Required secret: ANTHROPIC_API_KEY
+# Required secret: OPENAI_API_KEY
 #
 # How the topic is chosen:
 #   1. If triggered manually with a topic override, that topic is used.
@@ -105,7 +105,7 @@ jobs:
 
       - name: Run SEO content agent
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CLAUDE_OUTPUT_DIR: generated
         run: |
           python -m src.main \

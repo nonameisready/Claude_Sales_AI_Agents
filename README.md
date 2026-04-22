@@ -1,6 +1,6 @@
 # Claude Sales AI Agents
 
-An 8-agent organic growth system for DTC brands, powered by Claude Opus 4.6.
+An 8-agent organic growth system for DTC brands, powered by OpenAI GPT-4o.
 
 Built for anyone running **multiple brands** (like two fashion shops + a
 furniture brand) who wants to drive more orders primarily through **free
@@ -34,25 +34,23 @@ for the free analytics stack they rely on.
 
 ---
 
-## Why Claude Opus 4.6
+## Why GPT-4o
 
-- **Adaptive thinking** — spends more compute on a 10-post keyword
-  cluster than on a single meta description. You pay for depth only
-  when it matters.
-- **Prompt caching** — the stable role prompt + brand context are marked
-  `cache_control: ephemeral`, so running multiple tasks for the same
-  brand in one session drops input-token cost by ~10x.
+- **128k context window** — the full brand config, role prompt, and task
+  all fit comfortably in a single call; no chunking needed.
 - **Streaming by default** — long outputs (full blog posts, 30-day
   calendars) don't hit HTTP timeouts.
+- **Cost-flexible** — swap `model: gpt-4o` to `model: gpt-4o-mini` in
+  `config/brands.yaml` for ~85% lower cost when running high-volume
+  scheduled workflows.
 
-All three come straight out of the Anthropic Python SDK, no LangChain or
-wrappers in the loop.
+Uses the official OpenAI Python SDK directly — no LangChain or wrappers.
 
 ---
 
 ## Setup
 
-Requirements: Python 3.10+, an Anthropic API key.
+Requirements: Python 3.10+, an OpenAI API key.
 
 ```bash
 # 1. Clone and enter the repo
@@ -64,7 +62,7 @@ pip install -r requirements.txt
 
 # 3. Set your API key
 cp .env.example .env
-# then edit .env and paste your key
+# then edit .env and paste your OpenAI API key
 
 # 4. Fill in your brand details
 # Open config/brands.yaml and replace the three placeholder brands

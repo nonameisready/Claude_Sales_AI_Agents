@@ -7,7 +7,7 @@ name: Weekly Instagram & TikTok Content
 # Wednesday is chosen so the content is ready to schedule for the following
 # week (best posting windows are Tue–Fri, so review on Wed/Thu → schedule Fri).
 #
-# Required secret: ANTHROPIC_API_KEY
+# Required secret: OPENAI_API_KEY
 
 on:
   schedule:
@@ -93,7 +93,7 @@ jobs:
 
       - name: Run social media agent (Instagram + TikTok)
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CLAUDE_OUTPUT_DIR: generated
         run: |
           python -m src.main \

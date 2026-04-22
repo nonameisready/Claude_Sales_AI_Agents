@@ -3,7 +3,7 @@ name: Run AI Sales Agents (Manual)
 # Trigger this from the GitHub Actions UI: Actions → Run AI Sales Agents →
 # Run workflow. Fill in the inputs and hit the green button.
 #
-# Required secret: ANTHROPIC_API_KEY
+# Required secret: OPENAI_API_KEY
 # (Repository Settings → Secrets and variables → Actions → New repository secret)
 
 on:
@@ -54,7 +54,7 @@ jobs:
 
       - name: Run agents
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           # Write output to generated/ (tracked by CI) instead of
           # outputs/ (gitignored for local dev).
           CLAUDE_OUTPUT_DIR: generated
