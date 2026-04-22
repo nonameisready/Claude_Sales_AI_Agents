@@ -1,26 +1,29 @@
 # Claude Sales AI Agents
 
-A 5-agent organic growth system for DTC brands, powered by Claude Opus 4.6.
+An 8-agent organic growth system for DTC brands, powered by Claude Opus 4.6.
 
 Built for anyone running **multiple brands** (like two fashion shops + a
 furniture brand) who wants to drive more orders primarily through **free
-channels**: SEO, AI Search Optimization, organic social, lifecycle email,
-and free analytics tools.
+channels**: SEO, AI Search Optimization, organic social, Pinterest, lifecycle
+email, community marketing, conversion optimization, and free analytics tools.
 
 ---
 
 ## What's in the box
 
-Five specialized agents — each with its own prompt, methodology, and
+Eight specialized agents — each with its own prompt, methodology, and
 output formats — coordinated by an orchestrator:
 
-| # | Agent               | Produces                                                      |
-|---|---------------------|---------------------------------------------------------------|
-| 1 | **SEO Content**     | Blog posts, product descriptions, keyword clusters, FAQ pages |
-| 2 | **Social Media**    | 30-day calendars, viral hooks, UGC briefs, hashtag strategies |
-| 3 | **Technical SEO**   | JSON-LD schema, meta tags, sitemap plan, AI-crawler guide     |
-| 4 | **Email Marketing** | Welcome series, abandoned cart, post-purchase, seasonal flows |
-| 5 | **Analytics**       | KPI dashboards, competitor teardowns, free-tools setup guide  |
+| # | Agent                    | Key (`--agents`)      | Produces                                                          |
+|---|--------------------------|-----------------------|-------------------------------------------------------------------|
+| 1 | **SEO Content**          | `seo_content`         | Blog posts, product descriptions, keyword clusters, FAQ pages     |
+| 2 | **Social Media**         | `social_media`        | 30-day calendars, viral hooks, UGC briefs, hashtag strategies     |
+| 3 | **Pinterest SEO**        | `pinterest_seo`       | Board strategy, pin descriptions, Idea Pins, Rich Pins setup      |
+| 4 | **Technical SEO**        | `technical_seo`       | JSON-LD schema, meta tags, sitemap plan, AI-crawler guide         |
+| 5 | **Conversion (CRO)**     | `cro`                 | Product page copy, trust signals, size guides, checkout copy      |
+| 6 | **Community Marketing**  | `community_marketing` | Reddit strategy + posts, Quora answers, Facebook group plan       |
+| 7 | **Email Marketing**      | `email_marketing`     | Welcome series, abandoned cart, post-purchase, seasonal flows     |
+| 8 | **Analytics**            | `analytics`           | KPI dashboards, competitor teardowns, free-tools setup guide      |
 
 Every agent writes **brand-specific** content, on-voice and on-strategy,
 by reading a single YAML config (`config/brands.yaml`).
@@ -87,12 +90,15 @@ python -m src.main --brand fashion_brand_1 \
   --topic "minimalist capsule wardrobe"
 ```
 
-This runs all 5 agents for `fashion_brand_1` and writes outputs to:
+This runs all 8 agents for `fashion_brand_1` and writes outputs to:
 
 ```
 outputs/fashion_brand_1/seo_content/2026-04-10_blog-....md
 outputs/fashion_brand_1/social_media/2026-04-10_calendar-....md
+outputs/fashion_brand_1/pinterest_seo/2026-04-10_board-strategy.md
 outputs/fashion_brand_1/technical_seo/2026-04-10_sitemap-....md
+outputs/fashion_brand_1/cro/2026-04-10_product-page-copy.md
+outputs/fashion_brand_1/community_marketing/2026-04-10_reddit-strategy.md
 outputs/fashion_brand_1/email_marketing/2026-04-10_welcome-series.md
 outputs/fashion_brand_1/analytics/2026-04-10_kpi-dashboard.md
 ... etc.
@@ -139,7 +145,8 @@ Claude_Sales_AI_Agents/
 ├── requirements.txt
 ├── .env.example
 ├── config/
-│   └── brands.yaml           # Your brands' voice, audience, USP
+│   └── brands.yaml           # Your brands' voice, audience, USP,
+│                             # Pinterest boards, Reddit communities
 ├── docs/
 │   ├── STRATEGY.md           # The organic growth playbook
 │   └── FREE_TOOLS.md         # Free analytics tool stack
@@ -154,7 +161,12 @@ Claude_Sales_AI_Agents/
 │       │                     # caching, thinking)
 │       ├── seo_content.py
 │       ├── social_media.py
+│       ├── pinterest_seo.py  # NEW: Pinterest board strategy, pins,
+│       │                     # Idea Pins, Rich Pins / Shopping setup
 │       ├── technical_seo.py
+│       ├── cro.py            # NEW: Product page copy, trust signals,
+│       │                     # size guides, checkout copy, Google Shopping
+│       ├── community_marketing.py  # NEW: Reddit, Quora, Facebook groups
 │       ├── email_marketing.py
 │       └── analytics.py
 └── outputs/                  # Generated content lands here
@@ -167,18 +179,21 @@ Claude_Sales_AI_Agents/
 
 ```
   SEO content ──► Organic search traffic ──► Email capture
-       ▲                                           │
-       │                                           ▼
-  Social content ◄── UGC / Reviews ◄── Repeat purchases
+       ▲                 ▲                        │
+       │                 │                        ▼
+  Social content    Community posts  ◄── Repeat purchases
+       ▲                 ▲                        │
+       │                 │                        ▼
+  Pinterest pins ◄── Product pages ◄── CRO → First order
 ```
 
-- **SEO Content + Technical SEO** create the entry points (Google + AI
-  Overviews + ChatGPT Search)
-- **Social Media** drives net-new attention from TikTok / IG / Pinterest
-- **Email Marketing** converts attention into first orders and repeat
-  orders
-- **Analytics** tells you which 20% of assets are pulling 80% of the
-  weight so you can double down next month
+- **SEO Content + Technical SEO** create the entry points (Google + AI Overviews + ChatGPT Search)
+- **Social Media** drives net-new attention from TikTok / IG / Pinterest / YouTube
+- **Pinterest SEO** compounds visual search traffic — pins have a 3-6 month half-life vs. 24 hrs for IG
+- **CRO** ensures visitors who arrive actually buy — product page copy, trust signals, checkout reassurance
+- **Community Marketing** builds brand credibility on Reddit, Quora, and Facebook groups; Reddit posts rank in Google for years
+- **Email Marketing** converts attention into first orders and repeat orders
+- **Analytics** tells you which 20% of assets are pulling 80% of the weight so you can double down next month
 
 See [docs/STRATEGY.md](docs/STRATEGY.md) for the 90-day plan.
 

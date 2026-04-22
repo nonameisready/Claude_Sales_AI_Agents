@@ -27,7 +27,10 @@ import anthropic
 
 from .agents import (
     AnalyticsAgent,
+    CommunityMarketingAgent,
+    ConversionOptimizationAgent,
     EmailMarketingAgent,
+    PinterestSEOAgent,
     SEOContentAgent,
     SocialMediaAgent,
     TechnicalSEOAgent,
@@ -36,12 +39,16 @@ from .agents.base import BaseAgent
 from .utils import get_brand, list_brand_ids, load_config
 
 
-# Registry: string key -> agent class. Order here is the natural
-# "run all" order (content → distribution → infra → retention → measurement).
+# Registry: string key -> agent class. Order reflects the funnel:
+# content → distribution → visual search → infra → conversion →
+# community → retention → measurement.
 AGENT_REGISTRY: dict[str, type[BaseAgent]] = {
     "seo_content": SEOContentAgent,
     "social_media": SocialMediaAgent,
+    "pinterest_seo": PinterestSEOAgent,
     "technical_seo": TechnicalSEOAgent,
+    "cro": ConversionOptimizationAgent,
+    "community_marketing": CommunityMarketingAgent,
     "email_marketing": EmailMarketingAgent,
     "analytics": AnalyticsAgent,
 }
