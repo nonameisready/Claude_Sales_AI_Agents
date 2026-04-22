@@ -55,6 +55,22 @@ brands:
       summer: "Breathable linen, travel-friendly sets"
       fall: "Sweaters, layering pieces"
       winter: "Cozy knits, cold-weather essentials"
+    pinterest_boards:
+      - "Minimalist Capsule Wardrobe Ideas"
+      - "Organic Cotton Outfits"
+      - "Work to Weekend Style"
+      - "Sustainable Fashion Brands"
+      - "Size Inclusive Fashion"
+      - "Ethical Clothing Brands"
+      - "Effortless Everyday Outfits"
+    reddit_communities:
+      - "femalefashionadvice"
+      - "capsulewardrobe"
+      - "ethicalfashion"
+      - "sustainablefashion"
+      - "buyitforlife"
+      - "frugalfemaleadvice"
+    google_shopping_category: "Apparel & Accessories > Clothing"
 
   # ---------------------------------------------------------------------- #
   # FASHION BRAND #2                                                       #
@@ -102,6 +118,21 @@ brands:
       summer: "Graphic tees, caps, shorts"
       fall: "Heavy hoodies, varsity jackets"
       winter: "Puffers, beanies, layering pieces"
+    pinterest_boards:
+      - "Streetwear Outfit Ideas"
+      - "Unisex Streetwear Looks"
+      - "Vintage Inspired Streetwear"
+      - "Limited Edition Drops"
+      - "Gender Neutral Fashion"
+      - "Independent Streetwear Brands"
+    reddit_communities:
+      - "streetwear"
+      - "malefashionadvice"
+      - "femalefashionadvice"
+      - "hiphopfashion"
+      - "streetwearstartup"
+      - "findfashion"
+    google_shopping_category: "Apparel & Accessories > Clothing"
 
   # ---------------------------------------------------------------------- #
   # FURNITURE BRAND                                                        #
@@ -153,6 +184,25 @@ brands:
       summer: "Outdoor living, patio"
       fall: "Living room refreshes, cozy textiles"
       winter: "Bedroom makeovers, holiday hosting pieces"
+    pinterest_boards:
+      - "Small Apartment Furniture Ideas"
+      - "Modern Living Room Inspiration"
+      - "Small Space Solutions"
+      - "Solid Wood Furniture"
+      - "Minimalist Home Decor"
+      - "Apartment Bedroom Ideas"
+      - "Modular Sofa Ideas"
+      - "Mid Century Modern Dining Room"
+    reddit_communities:
+      - "malelivingspace"
+      - "femalelivingspace"
+      - "InteriorDesign"
+      - "Apartmenttherapy"
+      - "BuyItForLife"
+      - "smallapartments"
+      - "meubles"
+      - "HomeImprovement"
+    google_shopping_category: "Furniture > Living Room Furniture"
 
 # ============================================================================
 # Global settings shared across all brands
