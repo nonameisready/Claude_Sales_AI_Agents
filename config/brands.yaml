@@ -1,220 +1,238 @@
 # ============================================================================
 # Brand Configuration
 # ----------------------------------------------------------------------------
-# Fill in your brand details here. The more specific you are, the sharper
-# (and more on-brand) the AI-generated content will be.
-#
-# Every field feeds directly into the system prompts the agents use, so treat
-# this file as your single source of truth for voice, audience, and offers.
+# Updated from the live positioning and product mix of:
+# - https://whisperedatelier.com/
+# - https://www.deerhuisecret.com/
+# - https://www.zenlifeforever.com/
 # ============================================================================
 
 brands:
   # ---------------------------------------------------------------------- #
   # FASHION BRAND #1                                                       #
   # ---------------------------------------------------------------------- #
-  - id: fashion_brand_1
-    name: "YourFashionBrand1"
+  - id: whispered_atelier
+    name: "Whispered Atelier"
     industry: fashion
-    website: "https://yourfashionbrand1.com"
-    tagline: "Modern essentials for everyday confidence"
+    website: "https://whisperedatelier.com"
+    tagline: "Contemporary couture designed to sculpt presence"
     description: >
-      Contemporary women's fashion focused on minimalist, high-quality
-      basics and statement pieces. Size-inclusive and ethically sourced.
+      A contemporary couture house specializing in made-to-order evening gowns,
+      bridal pieces, power silhouettes, cocktail dresses, and statement formalwear.
+      The brand blends sculpted structure, romantic detail, and custom-fit service
+      for women seeking unforgettable occasion dressing.
     target_audience:
-      primary: "Women, 25-40, urban professionals"
-      secondary: "Style-conscious millennials interested in capsule wardrobes"
+      primary: "Women, 23-45, shopping for prom, gala, bridal, red-carpet, and formal-event dresses"
+      secondary: "Fashion-forward women who want custom sizing, couture styling, and statement silhouettes"
       pain_points:
-        - "Hard to find quality basics that last"
-        - "Want fashion that works from desk to dinner"
-        - "Care about sustainability but still want style"
+        - "Want a dress that feels designer-level, not mass-market"
+        - "Need custom sizing or made-to-order fit confidence"
+        - "Want a dramatic, flattering silhouette for a milestone event"
+        - "Need occasionwear that stands out in photos and in person"
     usp:
-      - "100% organic cotton core line"
-      - "Size-inclusive (XS-4XL)"
-      - "Free shipping over $75"
-      - "30-day no-hassle returns"
+      - "Bespoke made-to-order designs"
+      - "Free shipping for each order"
+      - "Free virtual fitting via WhatsApp"
+      - "Custom sizing available"
+      - "Distinct categories across evening, bridal, cocktail, and power dressing"
     voice:
-      tone: "Warm, confident, friendly — never preachy"
-      avoid: "Overused fashion buzzwords, exclamation overload, hype"
+      tone: "Elegant, feminine, sculptural, confident, and editorial"
+      avoid: "Fast-fashion language, casual slang, bargain-bin framing, overly generic luxury clichés"
       favorite_words:
-        - "effortless"
-        - "wearable"
-        - "timeless"
-        - "everyday luxury"
+        - "couture"
+        - "sculpted"
+        - "presence"
+        - "elegance"
+        - "unforgettable"
+        - "refined"
     competitors:
-      - "Everlane"
-      - "Quince"
-      - "COS"
+      - "Meshki"
+      - "House of CB"
+      - "Retrofête"
+      - "Nadine Merabi"
+      - "Sherri Hill"
     seed_keywords:
-      - "minimalist capsule wardrobe"
-      - "organic cotton basics"
-      - "ethical women's clothing"
-      - "size inclusive fashion"
-      - "work to weekend outfits"
+      - "made to order evening gown"
+      - "couture prom dress"
+      - "bridal couture gown"
+      - "illusion corset evening dress"
+      - "luxury gala dress"
+      - "statement formalwear"
+      - "custom size prom dress"
     seasonal_focus:
-      spring: "Lightweight layers, transitional dresses"
-      summer: "Breathable linen, travel-friendly sets"
-      fall: "Sweaters, layering pieces"
-      winter: "Cozy knits, cold-weather essentials"
+      spring: "Prom gowns, wedding guest looks, pastel couture, floral statement dresses"
+      summer: "Formal gala silhouettes, destination wedding edits, romantic tulle and satin"
+      fall: "Power dressing, jewel-toned evening gowns, editorial occasionwear"
+      winter: "Holiday formalwear, black-tie gowns, dramatic sleeves, luxe embellishment"
     pinterest_boards:
-      - "Minimalist Capsule Wardrobe Ideas"
-      - "Organic Cotton Outfits"
-      - "Work to Weekend Style"
-      - "Sustainable Fashion Brands"
-      - "Size Inclusive Fashion"
-      - "Ethical Clothing Brands"
-      - "Effortless Everyday Outfits"
+      - "Couture Evening Gowns"
+      - "Prom Dress Inspiration"
+      - "Modern Bridal Couture"
+      - "Power Dressing for Women"
+      - "Luxury Gala Looks"
+      - "Editorial Occasionwear"
+      - "Sculpted Corset Dresses"
     reddit_communities:
-      - "femalefashionadvice"
-      - "capsulewardrobe"
-      - "ethicalfashion"
-      - "sustainablefashion"
-      - "buyitforlife"
-      - "frugalfemaleadvice"
-    google_shopping_category: "Apparel & Accessories > Clothing"
+      - "weddingdress"
+      - "female fashion advice"
+      - "weddingplanning"
+      - "OUTFITS"
+      - "frugalwedding"
+      - "fashion"
+    google_shopping_category: "Apparel & Accessories > Clothing > Dresses"
 
   # ---------------------------------------------------------------------- #
   # FASHION BRAND #2                                                       #
   # ---------------------------------------------------------------------- #
-  - id: fashion_brand_2
-    name: "YourFashionBrand2"
+  - id: deerhui_secret
+    name: "DeerHui Secret"
     industry: fashion
-    website: "https://yourfashionbrand2.com"
-    tagline: "Streetwear with a story"
+    website: "https://www.deerhuisecret.com/"
+    tagline: "Elegance reimagined through modern Chinese-inspired design"
     description: >
-      Gender-neutral streetwear brand blending vintage influences with
-      modern silhouettes. Limited drops and community-driven collabs.
+      DeerHui Secret creates Chinese New Style clothing for modern women,
+      translating heritage aesthetics into wearable contemporary pieces.
+      The collection spans dresses, jackets, vests, blouses, pants, bags,
+      prom styles, and made-to-order pieces, with a strong emphasis on
+      mulberry silk, xiangyunsha, jacquard, brocade, and quietly expressive design.
     target_audience:
-      primary: "Gen Z and younger millennials, 18-30"
-      secondary: "Sneakerheads, music and skate culture fans"
+      primary: "Women, 25-45, drawn to neo-Chinese fashion, artful dressing, and elevated everyday elegance"
+      secondary: "Cultural aesthetes, silk lovers, gift buyers, and women seeking distinctive occasion or dailywear pieces"
       pain_points:
-        - "Tired of mass-produced fast fashion"
-        - "Want unique pieces that don't break the bank"
-        - "Value authenticity and brand story"
+        - "Want Chinese-inspired fashion that feels modern, not costume-like"
+        - "Need elegant statement pieces that are wearable in real life"
+        - "Looking for refined fabrics like silk, jacquard, and brocade"
+        - "Want clothing that feels artistic, feminine, and culturally grounded"
     usp:
-      - "Limited drops (never restocked)"
-      - "Small-batch production"
-      - "Collabs with independent artists"
-      - "Free shipping over $100"
+      - "Chinese New Style clothing for modern daily life"
+      - "Strong assortment in mulberry silk and xiangyunsha"
+      - "Made-to-order and customization options"
+      - "Rooted in Guangxi craftsmanship and local silk supply"
+      - "AI-enhanced visual storytelling paired with traditional material heritage"
     voice:
-      tone: "Edgy, confident, culturally aware, a little playful"
-      avoid: "Corporate speak, gatekeeping, over-explaining"
+      tone: "Quietly luxurious, poetic, cultured, feminine, and intimate"
+      avoid: "Touristy Orientalism, loud trend-chasing, costume framing, heavy jargon"
       favorite_words:
-        - "drop"
-        - "fit"
-        - "limited"
-        - "OG"
+        - "quiet elegance"
+        - "modern Chinese style"
+        - "wearable art"
+        - "refined"
+        - "soft power"
+        - "heritage"
     competitors:
-      - "Stüssy"
-      - "Carhartt WIP"
-      - "Aimé Leon Dore"
+      - "Mukzin"
+      - "SHUSHU/TONG"
+      - "Songmont"
+      - "Shanghai Tang"
+      - "independent neo-Chinese designers on Etsy"
     seed_keywords:
-      - "streetwear drops"
-      - "unisex hoodies"
-      - "vintage inspired tees"
-      - "independent streetwear brand"
-      - "limited edition apparel"
+      - "neo chinese dress"
+      - "mulberry silk qipao"
+      - "xiangyunsha dress"
+      - "modern chinese jacket"
+      - "jacquard vest women"
+      - "new chinese style clothing"
+      - "elegant oriental blouse"
     seasonal_focus:
-      spring: "Windbreakers, lightweight hoodies"
-      summer: "Graphic tees, caps, shorts"
-      fall: "Heavy hoodies, varsity jackets"
-      winter: "Puffers, beanies, layering pieces"
+      spring: "Jacquard dresses, light jackets, floral blouses, tea-gathering looks"
+      summer: "Sleeveless silk dresses, xiangyunsha, breathable elegance, travel dressing"
+      fall: "Brocade jackets, statement vests, layered neo-Chinese outfits"
+      winter: "Velvet qipao, rich texture, darker palettes, occasion-ready outerwear"
     pinterest_boards:
-      - "Streetwear Outfit Ideas"
-      - "Unisex Streetwear Looks"
-      - "Vintage Inspired Streetwear"
-      - "Limited Edition Drops"
-      - "Gender Neutral Fashion"
-      - "Independent Streetwear Brands"
+      - "Neo Chinese Fashion"
+      - "Mulberry Silk Dresses"
+      - "Modern Qipao Styling"
+      - "Chinese Inspired Jackets"
+      - "Quiet Luxury Outfit Ideas"
+      - "Artful Everyday Dressing"
+      - "Jacquard and Brocade Fashion"
     reddit_communities:
-      - "streetwear"
-      - "malefashionadvice"
       - "femalefashionadvice"
-      - "hiphopfashion"
-      - "streetwearstartup"
-      - "findfashion"
+      - "AsianBeauty"
+      - "OUTFITS"
+      - "EtsySellers"
+      - "oldhagfashion"
+      - "fashionwomens35"
     google_shopping_category: "Apparel & Accessories > Clothing"
 
   # ---------------------------------------------------------------------- #
   # FURNITURE BRAND                                                        #
   # ---------------------------------------------------------------------- #
-  - id: furniture_brand
-    name: "YourFurnitureBrand"
+  - id: zen_life_forever
+    name: "Zen Life Forever"
     industry: furniture
-    website: "https://yourfurniturebrand.com"
-    tagline: "Built for the life you actually live"
+    website: "https://www.zenlifeforever.com/"
+    tagline: "Calm, natural furniture for grounded everyday living"
     description: >
-      Mid-priced modern furniture — sofas, beds, dining, and storage —
-      designed for small apartments and growing families. Solid wood
-      construction and ships in reusable packaging.
+      Zen Life Forever is positioned as a zen-inspired home brand centered on
+      clean lines, warm wood tones, and practical furniture for peaceful,
+      uncluttered living spaces. The brand direction suggests minimalist,
+      nature-led pieces designed to bring calm, balance, and visual simplicity
+      into the home.
     target_audience:
-      primary: "First-time homeowners and renters, 28-45"
-      secondary: "Young families furnishing second homes, design-conscious urbanites"
+      primary: "Homeowners and renters, 28-50, who want calm, minimalist, natural-feeling interiors"
+      secondary: "Buyers furnishing apartments, studios, reading corners, and serene living spaces on a moderate budget"
       pain_points:
-        - "IKEA feels disposable, West Elm is too expensive"
-        - "Small space constraints"
-        - "Want furniture that lasts through moves"
-        - "Worry about long delivery times"
+        - "Want a peaceful home without overly cold or sterile furniture"
+        - "Need practical pieces that work in smaller modern spaces"
+        - "Looking for warm, natural materials and simple silhouettes"
+        - "Want furniture that feels grounded, timeless, and easy to style"
     usp:
-      - "Solid hardwood frames, not particleboard"
-      - "Ships in 2-3 weeks (not 4 months)"
-      - "Free white-glove delivery over $1,500"
-      - "10-year frame warranty"
-      - "Modular designs for small spaces"
+      - "Zen-inspired minimalist aesthetic"
+      - "Natural-material visual language"
+      - "Designed for calm, uncluttered interiors"
+      - "Approachable everyday styling for modern homes"
+      - "Brandable across tables, storage, seating, and decor"
     voice:
-      tone: "Grounded, reassuring, quietly confident, practical"
-      avoid: "Luxury snobbery, design-jargon-soup, anxiety marketing"
+      tone: "Calm, grounded, warm, reassuring, and minimal"
+      avoid: "Overdesigned luxury language, cluttered copy, trend overload, aggressive sales talk"
       favorite_words:
-        - "built to last"
-        - "made for real life"
-        - "solid"
-        - "thoughtful"
+        - "calm"
+        - "natural"
+        - "grounded"
+        - "minimal"
+        - "peaceful"
+        - "timeless"
     competitors:
       - "Article"
-      - "Floyd"
-      - "Burrow"
-      - "Sabai Design"
+      - "Castlery"
+      - "Japandi Supply House"
+      - "Muji"
+      - "Nathan James"
     seed_keywords:
-      - "solid wood sofa"
-      - "small space furniture"
-      - "modular sectional"
-      - "mid century dining table"
-      - "apartment friendly furniture"
+      - "zen style furniture"
+      - "minimalist wood furniture"
+      - "japandi furniture"
+      - "small space natural furniture"
+      - "solid wood dining table"
+      - "peaceful home furniture"
     seasonal_focus:
-      spring: "Outdoor sets, dining refreshes"
-      summer: "Outdoor living, patio"
-      fall: "Living room refreshes, cozy textiles"
-      winter: "Bedroom makeovers, holiday hosting pieces"
+      spring: "Dining refreshes, light wood finishes, entryway updates"
+      summer: "Airy rooms, natural textures, simple table styling"
+      fall: "Cozy living rooms, reading corners, warm wood storage"
+      winter: "Bedroom calm, hosting tables, serene home reset"
     pinterest_boards:
-      - "Small Apartment Furniture Ideas"
-      - "Modern Living Room Inspiration"
-      - "Small Space Solutions"
-      - "Solid Wood Furniture"
-      - "Minimalist Home Decor"
-      - "Apartment Bedroom Ideas"
-      - "Modular Sofa Ideas"
-      - "Mid Century Modern Dining Room"
+      - "Zen Living Room Ideas"
+      - "Japandi Furniture Inspiration"
+      - "Minimalist Wood Furniture"
+      - "Calm Home Decor"
+      - "Small Space Zen Interiors"
+      - "Natural Dining Room Ideas"
+      - "Peaceful Bedroom Styling"
     reddit_communities:
       - "malelivingspace"
       - "femalelivingspace"
       - "InteriorDesign"
-      - "Apartmenttherapy"
       - "BuyItForLife"
-      - "smallapartments"
-      - "meubles"
-      - "HomeImprovement"
-    google_shopping_category: "Furniture > Living Room Furniture"
+      - "homeowners"
+      - "DesignMyRoom"
+      - "SmallHome"
+    google_shopping_category: "Furniture"
 
 # ============================================================================
 # Global settings shared across all brands
 # ============================================================================
 global:
-  # Where to write generated content
   output_dir: outputs
-
-  # OpenAI model to use. gpt-4o is the best quality for long-form content.
-  # Swap to gpt-4o-mini for ~85% lower cost at somewhat lower output quality.
   model: gpt-4o
-
-  # Cap on output tokens per call. gpt-4o supports up to 16 384 output tokens.
-  # Blog posts and 30-day calendars typically need 4 000-8 000 tokens.
   max_tokens: 16000
