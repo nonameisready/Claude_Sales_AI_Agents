@@ -7,6 +7,8 @@ venv/
 .DS_Store
 outputs/*
 !outputs/.gitkeep
+generated/*
+!generated/.gitkeep
 .idea/
 .vscode/
 *.egg-info/

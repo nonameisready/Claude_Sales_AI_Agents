@@ -163,6 +163,136 @@ class SocialMediaAgent(BaseAgent):
         )
         return self.generate(task)
 
+    def write_instagram_carousels(self, topic: str, count: int = 5) -> str:
+        """
+        Write Instagram carousel posts (multi-image swipe posts).
+
+        Carousels are the #1 format for saves on Instagram. Each save tells
+        the algorithm the post is worth showing to more people. Carousels
+        also keep followers coming back to slides they bookmarked.
+        """
+        brand_name = self.brand["name"]
+        voice = self.brand.get("voice", {})
+        tone = voice.get("tone", "friendly and engaging")
+        task = (
+            f"Write {count} complete Instagram carousel posts for "
+            f"**{brand_name}** on the theme: **{topic}**.\n\n"
+            f"Brand voice: {tone}\n\n"
+            f"Instagram carousels drive more saves than any other format. "
+            f"Every carousel must be worth saving and revisiting.\n\n"
+            f"For each carousel:\n\n"
+            f"### Carousel [N]: [Title]\n"
+            f"**Save hook** (why someone bookmarks this): [1 sentence]\n"
+            f"**Slide count:** [5-10]\n"
+            f"**Slide breakdown:**\n"
+            f"- **Slide 1 (Cover):** Headline text (≤ 7 words) + "
+            f"visual concept. Must sell the swipe.\n"
+            f"- **Slide 2-N:** [Text overlay + image concept per slide — "
+            f"be specific about what appears on screen]\n"
+            f"- **Final slide:** CTA slide — 'Save this for later' / "
+            f"'Tag someone who needs this' / 'Link in bio for [X]'\n\n"
+            f"**Caption (≤ 150 chars before 'more'):**\n"
+            f"[Hook line that teases the carousel content]\n\n"
+            f"**Hashtags:** [10-15 tiered: 3 niche + 7 mid + 3 broad + "
+            f"1 branded]\n\n"
+            f"---\n\n"
+            f"Carousel types to cover across the {count}: tutorial/how-to, "
+            f"listicle (X things you didn't know), before-and-after, "
+            f"product spotlight (styled multiple ways), and myth-busting."
+        )
+        return self.generate(task)
+
+    def write_instagram_reels_batch(self, topic: str, count: int = 5) -> str:
+        """
+        Write a batch of Instagram Reels scripts optimized for the algorithm.
+
+        Reels get the widest reach of any Instagram format because they are
+        pushed to the Explore tab and to non-followers. The first 1.5 seconds
+        determine whether the viewer keeps watching or swipes away.
+        """
+        brand_name = self.brand["name"]
+        voice = self.brand.get("voice", {})
+        tone = voice.get("tone", "friendly and engaging")
+        task = (
+            f"Write {count} complete Instagram Reels scripts for "
+            f"**{brand_name}** on the theme: **{topic}**.\n\n"
+            f"Brand voice: {tone}\n\n"
+            f"For each Reel:\n\n"
+            f"### Reel [N]: [Working Title]\n"
+            f"**Duration:** [15 / 30 / 60 / 90 seconds]\n"
+            f"**Hook type:** [contrarian / curiosity gap / stat drop / "
+            f"tutorial / before-after / confession]\n"
+            f"**Hook (0:00-0:03):** [Exact words spoken + on-screen text. "
+            f"This is make-or-break.]\n\n"
+            f"**Full script:**\n"
+            f"[Timestamp] [Voiceover / on-screen text] | [Visual / action]\n"
+            f"[Continue for full duration]\n\n"
+            f"**Caption hook** (first line before 'more'): [≤ 125 chars]\n"
+            f"**CTA in video:** [spoken or text overlay at the end]\n"
+            f"**Caption CTA:** [comment keyword / save / share / link in bio]\n"
+            f"**Hashtags:** [10-12 tiered]\n"
+            f"**Sound suggestion:** [trending audio type or original audio]\n"
+            f"**Retention mechanic:** [1 sentence — how this keeps viewers "
+            f"watching past the hook]\n\n"
+            f"---\n\n"
+            f"Mix these formats across the {count}: quick tip, product "
+            f"transformation, myth-bust, day-in-the-life / behind-the-scenes, "
+            f"and one founder/brand story format."
+        )
+        return self.generate(task)
+
+    def write_instagram_profile_kit(self) -> str:
+        """
+        Write a complete Instagram profile optimization kit.
+
+        The profile is the #1 conversion page on Instagram — it's where
+        someone decides whether to follow after discovering a Reel. A weak
+        bio means wasted Reel reach.
+        """
+        brand_name = self.brand["name"]
+        website = self.brand.get("website", "")
+        usp = self.brand.get("usp", [])
+        voice = self.brand.get("voice", {})
+        tone = voice.get("tone", "friendly")
+        seed_keywords = self.brand.get("seed_keywords", [])
+
+        task = (
+            f"Write a complete Instagram profile optimization kit for "
+            f"**{brand_name}**.\n\n"
+            f"Website: {website}\n"
+            f"Brand USPs: {', '.join(usp) if usp else 'not specified'}\n"
+            f"Keywords: {', '.join(seed_keywords)}\n"
+            f"Voice: {tone}\n\n"
+            f"## 1. Username\n"
+            f"Current recommendation for the handle (if the brand hasn't "
+            f"chosen) — must be memorable, keyword-aware, and available on "
+            f"Instagram and TikTok for cross-platform consistency.\n\n"
+            f"## 2. Display Name (30 chars max)\n"
+            f"[Brand Name] + [1-2 keyword words] — the display name IS "
+            f"indexed by Instagram search; include a relevant keyword here.\n\n"
+            f"## 3. Bio (150 chars max)\n"
+            f"Line 1: What you do + for whom (keyword-aware)\n"
+            f"Line 2: Primary USP or proof point\n"
+            f"Line 3: CTA → link in bio\n"
+            f"(Use line breaks, minimal emoji — never the rocket ship)\n\n"
+            f"## 4. Link in Bio Strategy\n"
+            f"What links to feature (top 3-5 destinations), recommended "
+            f"link-in-bio tool (Linktree vs. native IG link vs. custom "
+            f"landing page), and what to change seasonally.\n\n"
+            f"## 5. Story Highlights Structure\n"
+            f"Recommended highlights (6-8 max), in order:\n"
+            f"| Highlight Name | Cover color | What goes in it |\n"
+            f"|---|---|---|\n"
+            f"[Fill the table with specific, brand-relevant highlights]\n\n"
+            f"## 6. Pinned Posts Strategy\n"
+            f"The 3 posts to pin permanently (Instagram allows 3 pins):\n"
+            f"What they should be, what purpose each pin serves, and how "
+            f"to update them quarterly.\n\n"
+            f"## 7. Profile Audit Checklist\n"
+            f"10-point monthly checklist for keeping the profile optimized."
+        )
+        return self.generate(task)
+
     # ------------------------------------------------------------------ #
     # Orchestrator entry point                                           #
     # ------------------------------------------------------------------ #
@@ -174,14 +304,16 @@ class SocialMediaAgent(BaseAgent):
         **_: Any,
     ) -> dict[str, Any]:
         """
-        Produce a default social sprint:
-            - one 30-day calendar
-            - one viral hook library around `topic`
-            - one hashtag strategy around `topic`
+        Produce a default social sprint (Instagram + TikTok focused):
+            - one 30-day content calendar
+            - one viral hook library
+            - 5 Instagram carousel posts
+            - 5 Instagram/TikTok Reels scripts
+            - one hashtag strategy
         """
         if not topic:
             raise ValueError("SocialMediaAgent.run() requires a `topic`.")
-        platforms = platforms or ["Instagram", "TikTok", "Pinterest"]
+        platforms = platforms or ["Instagram", "TikTok"]
         files: list[str] = []
 
         calendar = self.build_content_calendar(
@@ -192,6 +324,12 @@ class SocialMediaAgent(BaseAgent):
         hooks = self.write_viral_hooks(topic, count=20)
         files.append(str(self.save(f"hooks-{topic}", hooks)))
 
+        carousels = self.write_instagram_carousels(topic, count=5)
+        files.append(str(self.save(f"ig-carousels-{topic}", carousels)))
+
+        reels = self.write_instagram_reels_batch(topic, count=5)
+        files.append(str(self.save(f"ig-reels-scripts-{topic}", reels)))
+
         hashtags = self.write_hashtag_strategy(topic)
         files.append(str(self.save(f"hashtags-{topic}", hashtags)))
 
@@ -201,8 +339,7 @@ class SocialMediaAgent(BaseAgent):
             "topic": topic,
             "files": files,
             "summary": (
-                f"Produced a {days}-day calendar, 20 viral hooks, and a "
-                f"hashtag strategy for '{topic}' across "
-                f"{', '.join(platforms)}."
+                f"Produced a {days}-day calendar, 20 viral hooks, 5 IG carousels, "
+                f"5 Reels scripts, and hashtag strategy for '{topic}'."
             ),
         }
