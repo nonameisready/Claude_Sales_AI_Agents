@@ -211,10 +211,10 @@ global:
   # Where to write generated content
   output_dir: outputs
 
-  # Default Claude model. Opus 4.6 is the most capable; swap to
-  # claude-sonnet-4-6 if you want ~40% cheaper output and very similar quality.
-  model: claude-opus-4-6
+  # OpenAI model to use. gpt-4o is the best quality for long-form content.
+  # Swap to gpt-4o-mini for ~85% lower cost at somewhat lower output quality.
+  model: gpt-4o
 
-  # Cap on generation length per call (in tokens). Content agents need
-  # plenty of room — blog posts easily run 10-14k tokens.
+  # Cap on output tokens per call. gpt-4o supports up to 16 384 output tokens.
+  # Blog posts and 30-day calendars typically need 4 000-8 000 tokens.
   max_tokens: 16000

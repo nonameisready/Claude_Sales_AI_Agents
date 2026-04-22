@@ -139,6 +139,79 @@ class SEOContentAgent(BaseAgent):
         )
         return self.generate(task)
 
+    def write_pillar_page(self, topic: str) -> str:
+        """
+        Write a comprehensive 3 000+ word pillar/hub page designed to rank for
+        a broad head keyword and internally link to all supporting cluster posts.
+        """
+        task = (
+            f"Write a comprehensive pillar page on: **{topic}**\n\n"
+            f"Target word count: 3 000-3 500 words.\n\n"
+            f"A pillar page is the definitive guide on a broad topic. It ranks "
+            f"for the head keyword and links out to every supporting cluster "
+            f"post for depth.\n\n"
+            f"Structure:\n"
+            f"1. **Metadata block** (same YAML front-matter format as always)\n"
+            f"2. **Hero section** (60-word direct answer for AI snippets + "
+            f"what the reader will learn — no fluff)\n"
+            f"3. **Table of contents** (linked H2s)\n"
+            f"4. **H2 sections** (6-8 sections covering every major sub-topic; "
+            f"each H2 is a long-tail keyword phrase)\n"
+            f"   - Each H2 section: 300-400 words + at minimum one comparison "
+            f"table, bullet list, or numbered steps (AI engines cite these)\n"
+            f"   - Include a '[Deep dive: link to supporting post]' callout "
+            f"at the end of each H2 so internal links are mapped\n"
+            f"5. **Comparison / summary table** (consolidates key takeaways)\n"
+            f"6. **FAQ section** (6-8 PAA-style questions + schema-ready answers)\n"
+            f"7. **CTA** (product collection or category page — one CTA, specific)\n\n"
+            f"The page must be specific, fact-dense, and genuinely useful as a "
+            f"standalone resource — not a surface-level overview."
+        )
+        return self.generate(task)
+
+    def write_comparison_post(self, topic: str) -> str:
+        """
+        Write an 'X vs Y' or 'Best X for Y' comparison post.
+
+        These posts target high commercial intent ('which should I buy?')
+        and consistently rank #1 in both Google and AI Overviews because
+        they contain the structured comparison tables AI engines love to cite.
+        """
+        competitors = self.brand.get("competitors", [])
+        comp_hint = (
+            f"\n\nThe brand's main competitors are: {', '.join(competitors)}. "
+            f"Include at least one of them in a fair, factual comparison."
+            if competitors
+            else ""
+        )
+        task = (
+            f"Write a high-converting comparison blog post on: **{topic}**\n\n"
+            f"Target word count: 1 800-2 200 words.\n\n"
+            f"Comparison posts have the highest commercial intent of any content "
+            f"format — readers are actively deciding what to buy.{comp_hint}\n\n"
+            f"Structure:\n"
+            f"1. **Metadata block** (YAML front-matter)\n"
+            f"2. **Quick answer** (first 50 words — name a winner or give a "
+            f"clear 'it depends' with 2-3 crisp criteria; this is the AI snippet)\n"
+            f"3. **Comparison overview table** immediately after intro:\n"
+            f"   Columns: Brand/Option | Price | Key strength | Best for | "
+            f"Rating (out of 5)\n"
+            f"4. **Deep-dive sections** (one H2 per option being compared, "
+            f"300-400 words each)\n"
+            f"   - Who it's for, standout features, real limitations (no "
+            f"puff), price-to-value assessment\n"
+            f"5. **Side-by-side spec table** (the most-cited element in AI "
+            f"Overviews — be specific with numbers, materials, dimensions)\n"
+            f"6. **Our pick / verdict** section (clear recommendation, no "
+            f"fence-sitting — state who should buy which option and why)\n"
+            f"7. **FAQ section** (5-6 questions buyers actually ask)\n"
+            f"8. **CTA** to the brand's most relevant collection or product\n\n"
+            f"Be objective and honest. If a competitor beats the brand on a "
+            f"specific dimension, say so — this is what earns trust and "
+            f"AI citations. The brand wins on its genuine USPs."
+        )
+        return self.generate(task)
+
     # ------------------------------------------------------------------ #
     # Orchestrator entry point                                           #
     # ------------------------------------------------------------------ #
@@ -150,13 +223,14 @@ class SEOContentAgent(BaseAgent):
     ) -> dict[str, Any]:
         """
         Run a full content sprint on `topic`. By default produces:
-            - one keyword cluster
-            - one full blog post on the first supporting title
+            - one keyword cluster (content map for the topic)
+            - one full blog post
+            - one comparison post (high commercial intent)
             - one FAQ page
         """
         if not topic:
             raise ValueError("SEOContentAgent.run() requires a `topic`.")
-        content_types = content_types or ["cluster", "blog_post", "faq"]
+        content_types = content_types or ["cluster", "blog_post", "comparison", "faq"]
 
         files: list[str] = []
 
@@ -167,6 +241,14 @@ class SEOContentAgent(BaseAgent):
         if "blog_post" in content_types:
             post = self.write_blog_post(topic)
             files.append(str(self.save(f"blog-{topic}", post)))
+
+        if "pillar" in content_types:
+            pillar = self.write_pillar_page(topic)
+            files.append(str(self.save(f"pillar-{topic}", pillar)))
+
+        if "comparison" in content_types:
+            comparison = self.write_comparison_post(topic)
+            files.append(str(self.save(f"comparison-{topic}", comparison)))
 
         if "faq" in content_types:
             faq = self.write_faq_page(topic)

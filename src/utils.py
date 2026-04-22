@@ -55,9 +55,20 @@ def output_path(
 ) -> Path:
     """
     Compose a timestamped output path:
-        outputs/<brand_id>/<agent_name>/YYYY-MM-DD_<filename>
+        <output_dir>/<brand_id>/<agent_name>/YYYY-MM-DD_<filename>
+
+    The base output directory is resolved in this priority order:
+        1. CLAUDE_OUTPUT_DIR environment variable (used by GitHub Actions to
+           write to the tracked `generated/` directory instead of the
+           gitignored `outputs/` directory)
+        2. global.output_dir in brands.yaml  (default: "outputs")
     """
-    out_dir = REPO_ROOT / config.get("global", {}).get("output_dir", "outputs")
+    out_dir_env = os.environ.get("CLAUDE_OUTPUT_DIR")
+    if out_dir_env:
+        raw = Path(out_dir_env)
+        out_dir = raw if raw.is_absolute() else REPO_ROOT / raw
+    else:
+        out_dir = REPO_ROOT / config.get("global", {}).get("output_dir", "outputs")
     date_prefix = datetime.now().strftime("%Y-%m-%d")
     folder = out_dir / brand_id / agent_name
     folder.mkdir(parents=True, exist_ok=True)

@@ -1,17 +1,16 @@
 """
-BaseAgent — shared Claude API plumbing for every specialized agent.
+BaseAgent — shared OpenAI API plumbing for every specialized agent.
 
 Design notes
 ------------
-* We use Anthropic's Python SDK directly (no wrappers, no LangChain).
-* Prompt caching is enabled: the agent's role system prompt + brand context
-  are cached for 5 minutes, so running multiple tasks for the same brand in
-  the same session reads the cached prefix (~0.1x cost) instead of paying
-  full input-token price every time.
-* Opus 4.6 with adaptive thinking is the default — it spends more compute
-  on complex jobs (keyword clusters) and less on simple ones (a meta tag).
-* Streaming is on by default to stay under SDK HTTP timeouts on long
-  outputs like full blog posts.
+* Uses the official OpenAI Python SDK (openai>=1.0.0) directly — no
+  LangChain or wrappers.
+* The role prompt + brand context are combined into a single system message
+  so the model has full brand awareness on every call.
+* Streaming is on by default to avoid HTTP timeouts on long outputs
+  (full blog posts, 30-day social calendars).
+* Default model is gpt-4o — swap to gpt-4o-mini in config/brands.yaml
+  for ~85% lower cost at somewhat lower output quality.
 """
 from __future__ import annotations
 
@@ -20,7 +19,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any
 
-import anthropic
+import openai
 
 from ..utils import format_brand_context, output_path, slugify, write_output
 
@@ -40,14 +39,14 @@ class BaseAgent(ABC):
         self,
         brand: dict[str, Any],
         config: dict[str, Any],
-        client: anthropic.Anthropic | None = None,
+        client: openai.OpenAI | None = None,
     ):
         self.brand = brand
         self.config = config
-        self.client = client or anthropic.Anthropic(
-            api_key=os.environ.get("ANTHROPIC_API_KEY"),
+        self.client = client or openai.OpenAI(
+            api_key=os.environ.get("OPENAI_API_KEY"),
         )
-        self.model = config.get("global", {}).get("model", "claude-opus-4-6")
+        self.model = config.get("global", {}).get("model", "gpt-4o")
         self.max_tokens = config.get("global", {}).get("max_tokens", 16000)
 
     # ------------------------------------------------------------------ #
@@ -55,56 +54,50 @@ class BaseAgent(ABC):
     # ------------------------------------------------------------------ #
     def generate(self, task: str) -> str:
         """
-        Run one request against Claude and return the text response.
+        Run one request against the OpenAI Chat Completions API and return
+        the full text response.
 
-        The `system` parameter is a list of text blocks so we can mark the
-        stable prefix (role + brand) as cacheable. See shared/prompt-caching.md.
+        The system message combines:
+          1. The agent's role prompt (methodology and output format)
+          2. The brand context (YAML-dumped brand config)
+
+        Streaming is used to handle long outputs without hitting timeouts.
         """
         brand_ctx = format_brand_context(self.brand)
 
-        system_blocks = [
-            {
-                "type": "text",
-                "text": self.role_prompt.strip(),
-            },
-            {
-                "type": "text",
-                "text": (
-                    "## Brand Context\n"
-                    "You are working on behalf of the following brand. "
-                    "Every recommendation must be on-voice and on-strategy "
-                    "for this brand specifically.\n\n"
-                    f"```yaml\n{brand_ctx}\n```"
-                ),
-                # Everything up to here is stable for the whole session →
-                # cache it. Task varies per call and comes last.
-                "cache_control": {"type": "ephemeral"},
-            },
-        ]
+        system_content = (
+            self.role_prompt.strip()
+            + "\n\n"
+            + "## Brand Context\n"
+            + "You are working on behalf of the following brand. "
+            + "Every recommendation must be on-voice and on-strategy "
+            + "for this brand specifically.\n\n"
+            + f"```yaml\n{brand_ctx}\n```"
+        )
 
-        # Stream to avoid SDK HTTP timeouts on long outputs (full blog posts,
-        # 30-day social calendars).
-        with self.client.messages.stream(
+        stream = self.client.chat.completions.create(
             model=self.model,
             max_tokens=self.max_tokens,
-            thinking={"type": "adaptive"},
-            system=system_blocks,
-            messages=[{"role": "user", "content": task}],
-        ) as stream:
-            # Drain the stream — we don't need per-token output here.
-            for _ in stream.text_stream:
-                pass
-            final = stream.get_final_message()
+            messages=[
+                {"role": "system", "content": system_content},
+                {"role": "user", "content": task},
+            ],
+            stream=True,
+        )
 
-        # Extract the first text block (thinking blocks precede it).
-        text_parts = [b.text for b in final.content if b.type == "text"]
-        return "\n".join(text_parts).strip()
+        parts: list[str] = []
+        for chunk in stream:
+            delta = chunk.choices[0].delta
+            if delta.content:
+                parts.append(delta.content)
+
+        return "".join(parts).strip()
 
     # ------------------------------------------------------------------ #
     # Output helpers                                                     #
     # ------------------------------------------------------------------ #
     def save(self, filename: str, content: str) -> Path:
-        """Persist content to outputs/<brand>/<agent>/<date>_<filename>."""
+        """Persist content to <output_dir>/<brand>/<agent>/<date>_<filename>."""
         path = output_path(
             self.config,
             self.brand["id"],
