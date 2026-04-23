@@ -1,220 +1,234 @@
 # ============================================================================
 # Brand Configuration
 # ----------------------------------------------------------------------------
-# Fill in your brand details here. The more specific you are, the sharper
-# (and more on-brand) the AI-generated content will be.
-#
-# Every field feeds directly into the system prompts the agents use, so treat
-# this file as your single source of truth for voice, audience, and offers.
+# Three real brands. Review every field and adjust anything that doesn't
+# match your actual products, pricing, or brand voice. The more accurate
+# these details are, the better every agent's output will be.
 # ============================================================================
 
 brands:
   # ---------------------------------------------------------------------- #
-  # FASHION BRAND #1                                                       #
+  # FASHION BRAND #1 — Whispered Atelier                                  #
+  # whisperedatelier.com                                                   #
   # ---------------------------------------------------------------------- #
-  - id: fashion_brand_1
-    name: "YourFashionBrand1"
+  - id: whisperedatelier
+    name: "Whispered Atelier"
     industry: fashion
-    website: "https://yourfashionbrand1.com"
-    tagline: "Modern essentials for everyday confidence"
+    website: "https://whisperedatelier.com"
+    tagline: "Quietly beautiful. Artisan-crafted fashion for women who let their style speak."
     description: >
-      Contemporary women's fashion focused on minimalist, high-quality
-      basics and statement pieces. Size-inclusive and ethically sourced.
+      Whispered Atelier is an elegant women's fashion brand built on the
+      atelier tradition — considered design, quality fabrics, and pieces
+      made to be worn and remembered. The brand speaks softly but with
+      intention: understated luxury over trend-chasing.
     target_audience:
-      primary: "Women, 25-40, urban professionals"
-      secondary: "Style-conscious millennials interested in capsule wardrobes"
+      primary: "Women, 25-45, who value quiet sophistication and lasting quality"
+      secondary: "Style-conscious professionals who want investment pieces, not fast fashion"
       pain_points:
-        - "Hard to find quality basics that last"
-        - "Want fashion that works from desk to dinner"
-        - "Care about sustainability but still want style"
+        - "Tired of trend-driven pieces that feel disposable after one season"
+        - "Can't find elegant basics that feel special without being pretentious"
+        - "Want clothes that work effortlessly from work to evening"
+        - "Overwhelmed by over-designed, logo-heavy fashion"
     usp:
-      - "100% organic cotton core line"
-      - "Size-inclusive (XS-4XL)"
-      - "Free shipping over $75"
-      - "30-day no-hassle returns"
+      - "Artisan-crafted construction — not mass produced"
+      - "Timeless silhouettes that outlast seasons"
+      - "Considered fabric selection: natural fibres, quality drape"
+      - "Small-batch production — limited availability"
     voice:
-      tone: "Warm, confident, friendly — never preachy"
-      avoid: "Overused fashion buzzwords, exclamation overload, hype"
+      tone: "Quiet, elegant, confident — like a well-dressed woman who never shouts"
+      avoid: "Hype language, trend buzzwords, exclamation marks, over-explaining"
       favorite_words:
-        - "effortless"
-        - "wearable"
-        - "timeless"
-        - "everyday luxury"
+        - "considered"
+        - "artisan"
+        - "understated"
+        - "quietly"
+        - "crafted"
     competitors:
-      - "Everlane"
-      - "Quince"
-      - "COS"
+      - "Sézane"
+      - "& Other Stories"
+      - "Ba&sh"
+      - "Réalisation Par"
     seed_keywords:
-      - "minimalist capsule wardrobe"
-      - "organic cotton basics"
-      - "ethical women's clothing"
-      - "size inclusive fashion"
-      - "work to weekend outfits"
+      - "artisan women's fashion"
+      - "elegant minimalist clothing"
+      - "quiet luxury fashion"
+      - "investment piece women's clothing"
+      - "understated luxury dresses"
+      - "capsule wardrobe essentials women"
     seasonal_focus:
-      spring: "Lightweight layers, transitional dresses"
-      summer: "Breathable linen, travel-friendly sets"
-      fall: "Sweaters, layering pieces"
-      winter: "Cozy knits, cold-weather essentials"
+      spring: "Silk blouses, lightweight dresses, transitional layering pieces"
+      summer: "Linen sets, elegant sundresses, resort wear"
+      fall: "Tailored coats, rich-toned knitwear, structured pieces"
+      winter: "Luxe knits, evening wear, gift-worthy statement pieces"
     pinterest_boards:
-      - "Minimalist Capsule Wardrobe Ideas"
-      - "Organic Cotton Outfits"
-      - "Work to Weekend Style"
-      - "Sustainable Fashion Brands"
-      - "Size Inclusive Fashion"
-      - "Ethical Clothing Brands"
-      - "Effortless Everyday Outfits"
+      - "Quiet Luxury Fashion"
+      - "Elegant Minimalist Outfits"
+      - "Artisan Women's Clothing"
+      - "Investment Piece Style"
+      - "French Girl Fashion Inspiration"
+      - "Work to Evening Outfits"
     reddit_communities:
       - "femalefashionadvice"
       - "capsulewardrobe"
-      - "ethicalfashion"
-      - "sustainablefashion"
-      - "buyitforlife"
+      - "classicfilms"
       - "frugalfemaleadvice"
-    google_shopping_category: "Apparel & Accessories > Clothing"
+      - "ethicalfashion"
+    google_shopping_category: "Apparel & Accessories > Clothing > Women's Clothing"
 
   # ---------------------------------------------------------------------- #
-  # FASHION BRAND #2                                                       #
+  # FASHION BRAND #2 — Deer Huis Secret                                   #
+  # deerhuisecret.com                                                      #
   # ---------------------------------------------------------------------- #
-  - id: fashion_brand_2
-    name: "YourFashionBrand2"
+  - id: deerhuisecret
+    name: "Deer Huis Secret"
     industry: fashion
-    website: "https://yourfashionbrand2.com"
-    tagline: "Streetwear with a story"
+    website: "https://www.deerhuisecret.com"
+    tagline: "Nature-inspired fashion with a hidden story."
     description: >
-      Gender-neutral streetwear brand blending vintage influences with
-      modern silhouettes. Limited drops and community-driven collabs.
+      Deer Huis Secret is a women's fashion brand with a nature-inspired,
+      whimsical aesthetic — think forest light, soft textures, and pieces
+      that carry a quiet sense of mystery. "Huis" (Dutch for home) reflects
+      the brand's intimate, close-to-nature identity. Romantic prints,
+      earthy tones, and considered construction for women who dress with feeling.
     target_audience:
-      primary: "Gen Z and younger millennials, 18-30"
-      secondary: "Sneakerheads, music and skate culture fans"
+      primary: "Women, 22-40, drawn to nature-inspired, romantic, and whimsical aesthetics"
+      secondary: "Cottagecore and dark academia enthusiasts; women who shop independent brands"
       pain_points:
-        - "Tired of mass-produced fast fashion"
-        - "Want unique pieces that don't break the bank"
-        - "Value authenticity and brand story"
+        - "Mainstream fashion feels generic — no personality or story"
+        - "Hard to find feminine pieces that aren't over-the-top or fast fashion"
+        - "Want clothing that feels connected to nature and slower living"
+        - "Can't find romantic prints and textures outside of fast fashion"
     usp:
-      - "Limited drops (never restocked)"
-      - "Small-batch production"
-      - "Collabs with independent artists"
-      - "Free shipping over $100"
+      - "Nature-inspired prints and earthy colour palettes"
+      - "Romantic, whimsical designs not found on the high street"
+      - "Independent brand with a distinct creative identity"
+      - "Feminine silhouettes for real body shapes"
     voice:
-      tone: "Edgy, confident, culturally aware, a little playful"
-      avoid: "Corporate speak, gatekeeping, over-explaining"
+      tone: "Dreamy, warm, intimate — like a secret told between friends in the woods"
+      avoid: "Corporate polish, generic fashion speak, anything that feels mass-market"
       favorite_words:
-        - "drop"
-        - "fit"
-        - "limited"
-        - "OG"
+        - "secret"
+        - "soft"
+        - "forest"
+        - "bloom"
+        - "wandering"
+        - "hidden"
     competitors:
-      - "Stüssy"
-      - "Carhartt WIP"
-      - "Aimé Leon Dore"
+      - "Spell & The Gypsy Collective"
+      - "Free People"
+      - "Anthropologie"
+      - "Selkie"
     seed_keywords:
-      - "streetwear drops"
-      - "unisex hoodies"
-      - "vintage inspired tees"
-      - "independent streetwear brand"
-      - "limited edition apparel"
+      - "nature inspired women's fashion"
+      - "cottagecore clothing"
+      - "romantic floral dresses"
+      - "whimsical fashion brand"
+      - "earthy tones women's clothing"
+      - "boho dress independent brand"
     seasonal_focus:
-      spring: "Windbreakers, lightweight hoodies"
-      summer: "Graphic tees, caps, shorts"
-      fall: "Heavy hoodies, varsity jackets"
-      winter: "Puffers, beanies, layering pieces"
+      spring: "Floral midi dresses, lightweight blouses, pastel earth tones"
+      summer: "Printed sundresses, linen separates, nature-walk ready sets"
+      fall: "Forest-toned knitwear, romantic velvet, layering in rust and ochre"
+      winter: "Cosy textures, deep forest greens and burgundy, festive florals"
     pinterest_boards:
-      - "Streetwear Outfit Ideas"
-      - "Unisex Streetwear Looks"
-      - "Vintage Inspired Streetwear"
-      - "Limited Edition Drops"
-      - "Gender Neutral Fashion"
-      - "Independent Streetwear Brands"
+      - "Cottagecore Outfit Ideas"
+      - "Romantic Floral Fashion"
+      - "Nature Inspired Clothing"
+      - "Whimsical Women's Style"
+      - "Earthy Tones Wardrobe"
+      - "Boho Dress Inspiration"
     reddit_communities:
-      - "streetwear"
-      - "malefashionadvice"
       - "femalefashionadvice"
-      - "hiphopfashion"
-      - "streetwearstartup"
+      - "cottagecore"
+      - "witchesvspatriarchy"
       - "findfashion"
-    google_shopping_category: "Apparel & Accessories > Clothing"
+      - "ethicalfashion"
+    google_shopping_category: "Apparel & Accessories > Clothing > Women's Clothing"
 
   # ---------------------------------------------------------------------- #
-  # FURNITURE BRAND                                                        #
+  # FURNITURE / LIFESTYLE BRAND — Zen Life Forever                        #
+  # zenlifeforever.com                                                     #
   # ---------------------------------------------------------------------- #
-  - id: furniture_brand
-    name: "YourFurnitureBrand"
+  - id: zenlifeforever
+    name: "Zen Life Forever"
     industry: furniture
-    website: "https://yourfurniturebrand.com"
-    tagline: "Built for the life you actually live"
+    website: "https://www.zenlifeforever.com"
+    tagline: "Furniture and living essentials for a calmer, more intentional home."
     description: >
-      Mid-priced modern furniture — sofas, beds, dining, and storage —
-      designed for small apartments and growing families. Solid wood
-      construction and ships in reusable packaging.
+      Zen Life Forever brings mindful, minimalist design to everyday living —
+      furniture, home accessories, and lifestyle pieces built around the
+      principle that your environment shapes your wellbeing. Clean lines,
+      natural materials, and a calm palette designed for modern apartments
+      and homes where simplicity is the point.
     target_audience:
-      primary: "First-time homeowners and renters, 28-45"
-      secondary: "Young families furnishing second homes, design-conscious urbanites"
+      primary: "Adults 25-45 creating a peaceful, intentional home environment"
+      secondary: "Minimalism enthusiasts, yoga practitioners, wellness-oriented decorators"
       pain_points:
-        - "IKEA feels disposable, West Elm is too expensive"
-        - "Small space constraints"
-        - "Want furniture that lasts through moves"
-        - "Worry about long delivery times"
+        - "Most furniture is either cheap and disposable or absurdly expensive"
+        - "Hard to find furniture that feels genuinely calm — not just grey IKEA"
+        - "Small spaces need furniture that breathes, not bulky pieces"
+        - "Want a home that supports a slower, less cluttered lifestyle"
     usp:
-      - "Solid hardwood frames, not particleboard"
-      - "Ships in 2-3 weeks (not 4 months)"
-      - "Free white-glove delivery over $1,500"
-      - "10-year frame warranty"
-      - "Modular designs for small spaces"
+      - "Zen-inspired minimalist design language — not just 'neutral'"
+      - "Natural materials: bamboo, rattan, solid wood, stone-effect"
+      - "Designed for small-to-medium modern living spaces"
+      - "Coordinated collections so everything works together"
     voice:
-      tone: "Grounded, reassuring, quietly confident, practical"
-      avoid: "Luxury snobbery, design-jargon-soup, anxiety marketing"
+      tone: "Calm, grounded, intentional — speaks like a mindful interior designer"
+      avoid: "Urgency marketing, hype, noise, anything that creates anxiety"
       favorite_words:
-        - "built to last"
-        - "made for real life"
-        - "solid"
-        - "thoughtful"
+        - "intentional"
+        - "calm"
+        - "considered"
+        - "balance"
+        - "breathe"
+        - "natural"
     competitors:
+      - "MUJI"
+      - "Crate & Barrel"
       - "Article"
-      - "Floyd"
-      - "Burrow"
-      - "Sabai Design"
+      - "Japandi Home"
     seed_keywords:
-      - "solid wood sofa"
-      - "small space furniture"
-      - "modular sectional"
-      - "mid century dining table"
-      - "apartment friendly furniture"
+      - "zen home decor"
+      - "minimalist furniture"
+      - "japandi style furniture"
+      - "calm living room ideas"
+      - "natural material furniture"
+      - "mindful home design"
+      - "small space minimalist furniture"
     seasonal_focus:
-      spring: "Outdoor sets, dining refreshes"
-      summer: "Outdoor living, patio"
-      fall: "Living room refreshes, cozy textiles"
-      winter: "Bedroom makeovers, holiday hosting pieces"
+      spring: "Refresh and declutter: storage solutions, light natural textures"
+      summer: "Indoor-outdoor living, rattan and bamboo, bright natural light"
+      fall: "Cosy minimalism: warm natural tones, soft textiles, reading nooks"
+      winter: "Hygge-inspired calm: candle stands, soft rugs, bedroom sanctuaries"
     pinterest_boards:
-      - "Small Apartment Furniture Ideas"
-      - "Modern Living Room Inspiration"
-      - "Small Space Solutions"
-      - "Solid Wood Furniture"
-      - "Minimalist Home Decor"
-      - "Apartment Bedroom Ideas"
-      - "Modular Sofa Ideas"
-      - "Mid Century Modern Dining Room"
+      - "Zen Home Decor Ideas"
+      - "Japandi Interior Design"
+      - "Minimalist Living Room"
+      - "Natural Material Furniture"
+      - "Calm Bedroom Design"
+      - "Small Space Minimalist Home"
+      - "Mindful Home Inspiration"
     reddit_communities:
       - "malelivingspace"
       - "femalelivingspace"
+      - "minimalism"
+      - "ZenHabits"
       - "InteriorDesign"
-      - "Apartmenttherapy"
-      - "BuyItForLife"
       - "smallapartments"
-      - "meubles"
-      - "HomeImprovement"
+      - "BuyItForLife"
     google_shopping_category: "Furniture > Living Room Furniture"
 
 # ============================================================================
 # Global settings shared across all brands
 # ============================================================================
 global:
-  # Where to write generated content
+  # Where to write generated content (local dev only — CI uses CLAUDE_OUTPUT_DIR)
   output_dir: outputs
 
-  # OpenAI model to use. gpt-4o is the best quality for long-form content.
-  # Swap to gpt-4o-mini for ~85% lower cost at somewhat lower output quality.
+  # OpenAI model. gpt-4o is best for long-form content quality.
+  # Swap to gpt-4o-mini for ~85% lower cost.
   model: gpt-4o
 
-  # Cap on output tokens per call. gpt-4o supports up to 16 384 output tokens.
-  # Blog posts and 30-day calendars typically need 4 000-8 000 tokens.
+  # Max output tokens per call. gpt-4o supports up to 16 384.
   max_tokens: 16000

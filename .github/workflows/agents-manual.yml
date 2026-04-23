@@ -14,11 +14,11 @@ on:
         required: true
         type: choice
         options:
-          - fashion_brand_1
-          - fashion_brand_2
-          - furniture_brand
+          - whisperedatelier
+          - deerhuisecret
+          - zenlifeforever
           - all
-        default: fashion_brand_1
+        default: whisperedatelier
       agents:
         description: >
           Agents to run (space-separated).

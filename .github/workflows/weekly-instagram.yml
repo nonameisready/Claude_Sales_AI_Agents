@@ -24,9 +24,9 @@ on:
         type: choice
         options:
           - ""
-          - fashion_brand_1
-          - fashion_brand_2
-          - furniture_brand
+          - whisperedatelier
+          - deerhuisecret
+          - zenlifeforever
         default: ""
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
           if [ -n "${{ inputs.brand }}" ]; then
             echo 'brands=["${{ inputs.brand }}"]' >> $GITHUB_OUTPUT
           else
-            echo 'brands=["fashion_brand_1","fashion_brand_2","furniture_brand"]' >> $GITHUB_OUTPUT
+            echo 'brands=["whisperedatelier","deerhuisecret","zenlifeforever"]' >> $GITHUB_OUTPUT
           fi
 
   instagram-content:
